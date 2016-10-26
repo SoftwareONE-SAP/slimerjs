@@ -2,9 +2,6 @@
   "name": "slimerjs-optiq",
   "version": "1.0.0",
   "description": "Downloads and exports slimerjs path",
-  "bin": {
-    "slimerjs": "slimerjs-0.10.1/slimerjs"
-  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
