@@ -20,5 +20,5 @@ request('http://download.slimerjs.org/releases/'+ lib.version +'/slimerjs-'+ lib
     path: '.',
   })
 ).on('finish', function() {
-  fs.chmodSync('slimerjs-' + lib.version + '/slimerjs', '755');
+  fs.chmodSync('slimerjs-' + lib.version, '755');
 });
