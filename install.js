@@ -3,6 +3,8 @@ var request = require('request'),
     fs = require('fs'),
     lib  = require('./index.js');
 
+console.log(lib);
+
 try {
   var stats = fs.lstatsSync(lib.path);
   if (stats.isDirectory()) {
