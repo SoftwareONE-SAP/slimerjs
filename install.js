@@ -1,7 +1,8 @@
 var request = require('request'),
     unzip = require('unzip'),
-    fs = require('fs'),
-    lib  = require('./index.js');
+    fs    = require('fs'),
+    lib   = require('./index.js'),
+    loc   = 'http://download.slimerjs.org/releases/'+ lib.version +'/slimerjs-'+ lib.version +'.zip';
 
 console.log(lib);
 
@@ -10,15 +11,12 @@ try {
   if (stats.isDirectory()) {
     return;
   }
-} catch (e) {
-  console.log('installing..')
-}
+} catch (e) {}
 
-// Fetch http://example.com/foo.gz, gunzip it and store the results in 'out'
-request('http://download.slimerjs.org/releases/'+ lib.version +'/slimerjs-'+ lib.version +'.zip').pipe(
-  unzip.Extract({
-    path: '.',
-  })
-).on('finish', function() {
-  fs.chmodSync('slimerjs-' + lib.version, '755');
+/**
+ * Download, Pipe and extract.
+ */
+request(loc).pipe(unzip.Extract({path: "."})).on('finish', function() {
+  // Chmod
+  fs.chmodSync(lib.bin, '755');
 });
