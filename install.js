@@ -19,7 +19,7 @@ try {
 request(loc).pipe(unzip.Extract({path: "."})).on('response', function(response) {
   console.log("Response Code %s", response.statusCode);
 }).on('finish', function() {
-  fs.chmodSync(lib.bin, '755');
+  //fs.chmodSync(lib.bin, '755');
 }).on('error', function(err) {
   console.error(err)
 })
