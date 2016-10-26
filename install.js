@@ -1,7 +1,9 @@
 var request = require('request'),
     unzip = require('unzip'),
     fs = require('fs'),
-    lib  = require('.');
+    lib  = require('./index.js');
+
+console.log(lib);
 
 try {
   var stats = fs.lstatsSync(lib.path);
